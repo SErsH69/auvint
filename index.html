@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auvint</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=8a69628d-9012-482b-962d-9bd92d6f2d51&lang=ru_RU" type="text/javascript"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__top">
+                <div class="header__in center_block">
+                    <div class="header__slog">Инженерные решения любой сложности и широкий ассортимент товаров в наличии</div>
+                    <a href="mailto:opt@auvint.ru" class="header__mail">opt@auvint.ru</a>
+                    <div class="header__addr">г. Иркутск, ул. Баррикад, 55</div>
+                    <div class="header__socs">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="header__soc"><img src="img/ss1.svg" alt=""></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="header__soc"><img src="img/ss2.svg" alt=""></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="header__soc"><img src="img/ss3.svg" alt=""></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="header__soc"><img src="img/ss4.svg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="header__bottom center_block">
+                <div class="header__t-side">
+                    <a href="#" class="header__logo"><img src="img/logo.svg" alt=""></a>
+                    <form action="" class="header__form">
+                        <input type="text" placeholder="Поиск">
+                        <input type="submit" value="Найти">
+                    </form>
+                    <a href="tel:73952265994" class="header__tel">+7 (3952) 265-994</a>
+                    <a href="tel:88005512069" class="header__tel">8 800 551-20-69</a>
+                </div>
+                <div class="header__b-side">
+                    <div class="main_menu">
+                        <div class="main_menu__title">Каталог</div>
+                        <nav class="main_menu__menu"></nav>
+                    </div>
+                    <nav class="header__nav_m">
+                        <ul>
+                            <li><a href="#">Услуги</a></li>
+                            <li><a href="#">О компании</a></li>
+                            <li><a href="#">Контакты</a></li>
+                            <li><a href="#">Портфолио</a></li>
+                            <li><a href="#">Благодарности</a></li>
+                            <li><a href="#">Отзывы</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="content">
+            <div class="main_about center_block">
+                <div class="main_about__title">О компании</div>
+                <div class="main_about__blocks">
+                    <div class="main_about__block">
+                        <p>Наша компания уже более 10 лет работает в сфере поставки и установки новейшего аудио-видео оборудования. На протяжении этих лет мы постоянно участвуем в государственных закупках, тендерах, работаем с образовательными учреждениями области, а сделанные нами проекты реализуются по всей стране.</p>
+                        <p>Работая с клиентом мы стараемся не просто поставить ему оборудование, мы закрываем конкретные задачи, самостоятельно проектируем, привозим и устанавливаем аудио-видео системы.</p>
+                    </div>
+                    <div class="main_about__block">
+                        <p>Из наших достижений хочется отметить следующие: оснащены 8 конгресс-залов в Иркутской области, общей стоимостью более 100 млн. руб., комплексно оснащено 8 школ-новостроек, а в каждой второй школе региона пользуются оборудованием, приобретённым у нас. Мы спроектировали и реализовали аудио-видео-световые решения в 350 барах, кафе, ресторанах и магазинах. При нашем участии открыто 7 центров молодёжного инновационного творчества.</p>
+                        ​​<p>У нас свой штат высококвалифицированных сотрудников, свой склад с огромными запасами оборудования в Иркутске и огромное желание помочь вам решить вашу задачу!</p>
+                    </div>
+                </div>
+                <div class="main_about__img"><img src="img/all.jpg" alt=""></div>
+            </div>
+            <div class="main_map">
+                <div class="main_map__map">
+                    <div class="main_map__hide"></div>
+		            <div class="main_map__map" id="map" style="height: 780px;"></div>
+                </div>
+                <script type="text/javascript" >
+                    if (jQuery('#map').length) {
+                        ymaps.ready(function () {
+                            var myMap = new ymaps.Map('map', {
+                                    center: [52.295955, 104.306235],
+                                    zoom: 16,
+                                    controls: ['zoomControl', 'fullscreenControl',"geolocationControl"]
+                                }, {
+                                    searchControlProvider: 'yandex#search'
+                                }),
+                                myPlacemark2 = new ymaps.Placemark([52.295955, 104.306235], {
+                                    hintContent: 'Auvint',
+                                    balloonContent: 'Auvint'
+                                }, {
+                                    iconLayout: 'default#image',
+                                    iconImageHref: 'img/point.svg',
+                                    iconImageSize: [40, 40],
+                                    iconImageOffset: [-20, -20]
+                    
+                                });
+                    
+                            myMap.geoObjects
+                                .add(myPlacemark2)
+                        });
+                    }
+                </script>
+                <div class="main_map__in center_block">
+                    <div class="main_map__item">
+                        <div class="main_map__blocks">
+                            <div class="main_map__block">
+                                <span>Адрес</span>
+                                <div>г. Иркутск, ул. Баррикад, 51/9</div>
+                            </div>
+                            <div class="main_map__block">
+                                <span>Горячая линия</span>
+                                <a href="tel:88005512069">8 800 551-20-69</a>
+                            </div>
+                            <div class="main_map__block">
+                                <span>Телефон</span>
+                                <a href="tel:73952265994">+7 (3952) 265-994</a>
+                            </div>
+                            <div class="main_map__block">
+                                <span>Почта</span>
+                                <a href="mailto:opt@auvint.ru">opt@auvint.ru</a>
+                            </div>
+                        </div>
+                        <div class="main_map__info">
+                            <div class="main_map__img"><img src="img/avatar.png" alt=""></div>
+                            <div class="main_map__r-side">
+                                <div class="main_map__tit">Связаться <br> с руководителем</div>
+                                <a href="#" class="main_map__link">Написать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer__top center_block">
+                <div class="footer__l-side">
+                    <a href="#" class="footer__logo"><img src="img/logo.svg" alt=""></a>
+                    <div class="footer__text">
+                        ИП Ваньков Максим Юрьевич <br>
+                        ИНН 772401953110 <br>
+                        ОГРН 317774600556173
+                    </div>
+                    <div class="footer__socs">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="footer__soc"><img src="img/s1.svg" alt=""></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="footer__soc"><img src="img/s2.svg" alt=""></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="footer__soc"><img src="img/s3.svg" alt=""></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="footer__soc"><img src="img/s4.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="footer__r-side">
+                    <nav>
+                        <div class="footer__title">О компании</div>
+                        <ul>
+                            <li><a href="#">Главная</a></li>
+                            <li><a href="#">О компании</a></li>
+                            <li><a href="#">Новости</a></li>
+                            <li><a href="#">Отзывы</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <div class="footer__title">Информация</div>
+                        <ul>
+                            <li><a href="#">Сертификаты</a></li>
+                            <li><a href="#">Помощь</a></li>
+                            <li><a href="#">Наши предложения</a></li>
+                            <li><a href="#">Преимущества</a></li>
+                            <li><a href="#">Партнёрам</a></li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <div class="footer__title">Информация</div>
+                        <ul>
+                            <li><a href="#">Сертификаты</a></li>
+                            <li><a href="#">Помощь</a></li>
+                            <li><a href="#">Наши предложения</a></li>
+                            <li><a href="#">Преимущества</a></li>
+                            <li><a href="#">Партнёрам</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__in center_block">
+                    <div class="footer__copy">Компания Аувинт | 2010-2022</div>
+                    <div class="footer__right">Все права защищены</div>
+                    <a href="#" class="footer__politic">Политика в отношении обработки персональных данных</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
